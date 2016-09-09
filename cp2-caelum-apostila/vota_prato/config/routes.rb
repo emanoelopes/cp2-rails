@@ -57,5 +57,4 @@ Rails.application.routes.draw do
 end
 VotaPrato::Application.routes.draw do
   match 'ola' => 'ola_mundo#index', via: 'get'
-  match 'hello_world' => 'hello_world#index', via: 'get'
 end
