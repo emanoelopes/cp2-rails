@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  local: MyString
+  inicio: 2016-08-25 11:57:25
+  termino: 2016-08-25 11:57:25
+
+two:
+  nome: MyString
+  local: MyString
+  inicio: 2016-08-25 11:57:25
+  termino: 2016-08-25 11:57:25
