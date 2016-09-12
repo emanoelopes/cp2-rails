@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :qualificacoes
+  resources :clientes
   resources :comentarios
   resources :restaurantes
   # The priority is based upon order of creation: first created -> highest priority.
@@ -57,6 +59,8 @@ Rails.application.routes.draw do
   #   end
 end
 VotaPrato::Application.routes.draw do
+  resources :qualificacoes
+  resources :clientes
   match 'ola' => 'ola_mundo#index', via: 'get'
   match 'hello_world' => 'hello_world#index', via: 'get'
 end
