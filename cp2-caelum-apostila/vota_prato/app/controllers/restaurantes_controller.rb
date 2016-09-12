@@ -18,8 +18,11 @@ class RestaurantesController < ApplicationController
 	#action create é necessária para persistir os dados no banco.
 	def create
 		@restaurante = Restaurante.new restaurante_params
-		@restaurante.save
+		if @restaurante.save
 		redirect_to(action: "show", id: @restaurante)
+		else
+		render action: "new"
+		end
 	end
 
 	#Solicita a atribuição das propriedades de um restaurante.
