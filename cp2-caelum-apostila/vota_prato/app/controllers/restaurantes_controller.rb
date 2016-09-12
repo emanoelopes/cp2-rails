@@ -27,4 +27,15 @@ class RestaurantesController < ApplicationController
 		params.require(:restaurante).permit(:nome, :endereco, :especialidade)
 	end
 
+	def edit
+		@restaurante = Restaurante.find params[:id]
+	end
+
+	def update
+		@restaurante = Restaurante.find(params[:id])
+		@restaurante.update_attributes(restaurante_params)
+
+		redirect_to action: "show", id: @restaurante
+	end
+
 end
