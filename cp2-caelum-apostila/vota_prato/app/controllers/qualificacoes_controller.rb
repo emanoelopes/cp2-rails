@@ -14,11 +14,13 @@ class QualificacoesController < ApplicationController
 
   # GET /qualificacoes/new
   def new
+    preparar_form
     @qualificacao = Qualificacao.new
   end
 
   # GET /qualificacoes/1/edit
   def edit
+    preparar_form
   end
 
   # POST /qualificacoes
@@ -31,6 +33,7 @@ class QualificacoesController < ApplicationController
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render :show, status: :created, location: @qualificacao }
       else
+        preparar_form
         format.html { render :new }
         format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
       end
@@ -40,13 +43,18 @@ class QualificacoesController < ApplicationController
   # PATCH/PUT /qualificacoes/1
   # PATCH/PUT /qualificacoes/1.json
   def update
+    @qualificacao = Qualificacao.find(params[:id])
+
     respond_to do |format|
-      if @qualificacao.update(qualificacao_params)
-        format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully updated.' }
+      if @qualificacao.update_attributes(qualificacao_params)
+        format.html { redirect_to @qualificacao,
+         notice: 'Qualificacao was successfully updated.' }
         format.json { render :show, status: :ok, location: @qualificacao }
       else
-        format.html { render :edit }
-        format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
+        preparar_form
+        format.html { render action: "edit" }
+        format.json { render json: @qualificacao.errors, 
+          status: :unprocessable_entity }
       end
     end
   end
@@ -71,4 +79,10 @@ class QualificacoesController < ApplicationController
     def qualificacao_params
       params.require(:qualificacao).permit(:cliente_id, :restaurante_id, :nota, :valor_gasto)
     end
+
+  private
+  def preparar_form
+    @clientes = Cliente.order :nome
+    @restaurantes = Restaurante.order :nome
+  end
 end
