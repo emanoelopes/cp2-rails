@@ -1,7 +1,7 @@
 <ul>
-<% opcoes.each do |controller_name| %>
+<% %w[clientes qualificacoes restaurantes].each do |controller_name| %>
 <li>
 <%= link_to controller_name, controller: controller_name %>
 </li>
-<% end%>
+<%end%>
 </ul>
