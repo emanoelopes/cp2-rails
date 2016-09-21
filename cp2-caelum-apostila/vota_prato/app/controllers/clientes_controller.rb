@@ -58,6 +58,7 @@ class ClientesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to clientes_url, notice: 'Cliente was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {render :nothing => true }
     end
   end
 
