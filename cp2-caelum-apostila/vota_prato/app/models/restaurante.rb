@@ -17,4 +17,5 @@ class Restaurante < ActiveRecord::Base
 
 	has_many :comentarios, as: :comentavel
   has_attached_file :foto, styles: {medium: "300x300>", thumb: "100x100>"}
+  validates_attachment :foto, presence: true
 end

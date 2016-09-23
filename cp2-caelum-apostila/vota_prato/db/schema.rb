@@ -20,17 +20,6 @@ ActiveRecord::Schema.define(version: 20160922181948) do
     t.datetime "updated_at"
   end
 
-  create_table "comentarios", force: :cascade do |t|
-    t.text     "conteudo",        limit: 65535
-    t.integer  "comentavel_id",   limit: 4
-    t.string   "comentavel_type", limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  add_index "comentarios", ["comentavel_id"], name: "index_comentarios_on_comentavel_id", using: :btree
-  add_index "comentarios", ["comentavel_type"], name: "index_comentarios_on_comentavel_type", using: :btree
-
   create_table "pratos", force: :cascade do |t|
     t.string   "nome",       limit: 80
     t.datetime "created_at",            null: false
