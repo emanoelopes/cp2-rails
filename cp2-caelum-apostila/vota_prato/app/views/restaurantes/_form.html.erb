@@ -2,14 +2,13 @@
 <ul>
 	<% @restaurante.errors.full_messages.each do |msg| %>
 		<li><%= msg %></li>
-		<%end%>
+    <% end %>
 </ul>
-<%end%>
-
+<% end %>
 <%= form_for @restaurante, html: {multipart: true} do |f| %>
 	Nome: <%= f.text_field :nome %> <br>
 	Endereço: <%= f.text_field :endereco %><br>
-  Especialidade: <%= f.text_field :especialidade %><br>
-  <%= f.file_field :foto %>
-	<%= f.submit%>
-<%end%>
+    Especialidade: <%= f.text_field :especialidade %><br>
+  <%= f.file_field :foto %><br>
+  <%= f.submit%><br>
+<% end %>
