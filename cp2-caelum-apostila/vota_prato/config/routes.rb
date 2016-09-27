@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :comentarios
   resources :comentarios
+  resources :comentarios
   resources :qualificacoes
   resources :clientes
   resources :comentarios
@@ -61,6 +62,7 @@ Rails.application.routes.draw do
   #   end
 end
 VotaPrato::Application.routes.draw do
+  resources :comentarios
   resources :comentarios
   resources :comentarios
   resources :qualificacoes

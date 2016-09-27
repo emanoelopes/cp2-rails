@@ -7,7 +7,7 @@ class CreateComentarios < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-	add_index :comentarios, :comentavel_type
-	add_index :comentarios, :comentavel_id
+    add_index :comentarios, :comentavel_type
+    add_index :comentarios, :comentavel_id
   end
 end
