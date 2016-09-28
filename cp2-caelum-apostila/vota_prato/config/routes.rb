@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   resources :comentarios
-  resources :comentarios
-  resources :comentarios
   resources :qualificacoes
   resources :clientes
-  resources :comentarios
   resources :restaurantes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -63,10 +60,11 @@ Rails.application.routes.draw do
 end
 VotaPrato::Application.routes.draw do
   resources :comentarios
-  resources :comentarios
-  resources :comentarios
   resources :qualificacoes
   resources :clientes
   match 'ola' => 'ola_mundo#index', via: 'get'
   match 'hello_world' => 'hello_world#index', via: 'get'
+  match 'rack', 
+  :to => proc{|env| [200, {"Content-Type" => "text/html"},
+    ["App Rack numa rota Rails"]]}
 end
