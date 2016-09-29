@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
 VotaPrato::Application.routes.draw do
   resources :comentarios
@@ -64,7 +65,6 @@ VotaPrato::Application.routes.draw do
   resources :clientes
   match 'ola' => 'ola_mundo#index', via: 'get'
   match 'hello_world' => 'hello_world#index', via: 'get'
-  match 'rack', 
-  :to => proc{|env| [200, {"Content-Type" => "text/html"},
-    ["App Rack numa rota Rails"]]}
+  get 'rack', :to => proc {|env| [200, {"Content-Type" => "text/html"}, ["App Rack numa rota Rails"]]}
 end
+
