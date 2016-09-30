@@ -1,5 +1,10 @@
+require 'observer'
+
 class Restaurante < ActiveRecord::Base
 	include Observer
+	include Observable
+
+	attr_reader :nome, :nota
 
 	def qualifica(nota)
 		puts "Restaurante recebeu #{nota}"
