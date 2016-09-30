@@ -8,6 +8,7 @@ module Observer
 	end
 
 	def notifica
-		#percorrer os observers e chamar o método alerta
 	end
+	
+
 end

@@ -2,9 +2,10 @@ class Restaurante < ActiveRecord::Base
 	include Observer
 
 	def qualifica(nota)
-		puts "Restaurante recebeu nota #{nota}"
+		puts "Restaurante recebeu #{nota}"
 		notifica
 	end
+
 
 	validates_presence_of :nome, message: "Deve ser preenchido"
 	validates_presence_of :endereco, message: "Deve ser preenchido"
