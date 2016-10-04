@@ -1,14 +1,10 @@
 require 'observer'
 
 class Restaurante < ActiveRecord::Base
-	include Observer
-	include Observable
-
-	attr_reader :nome, :nota
+	include Wisper::Publisher
 
 	def qualifica(nota)
 		puts "Restaurante recebeu #{nota}"
-		notifica
 	end
 
 
@@ -26,6 +22,8 @@ class Restaurante < ActiveRecord::Base
 	end
 	has_many :qualificacoes
 	has_and_belongs_to_many :pratos
+
+	#has_many :franquias
 
 	has_many :comentarios, as: :comentavel
   has_attached_file :foto, styles: {medium: "300x300>", thumb: "100x100>"}

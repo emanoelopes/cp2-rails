@@ -18,4 +18,5 @@
 ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'qualificacao', 'qualificacoes'
 	inflect.irregular 'receita', 'receitas'
+	inflect.irregular 'franquia', 'franquias'
 end

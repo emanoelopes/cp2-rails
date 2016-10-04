@@ -34,6 +34,7 @@ class QualificacoesController < ApplicationController
   # POST /qualificacoes.json
   def create
     @qualificacao = Qualificacao.new(qualificacao_params)
+    restaurante = Restaurante.find(params[:restaurante_id])
 
     respond_to do |format|
       if @qualificacao.save

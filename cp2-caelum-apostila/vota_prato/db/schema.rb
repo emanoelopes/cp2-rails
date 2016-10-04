@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927165826) do
+ActiveRecord::Schema.define(version: 20161004185332) do
 
   create_table "clientes", force: :cascade do |t|
     t.string   "nome",       limit: 80
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20160927165826) do
 
   add_index "comentarios", ["comentavel_id"], name: "index_comentarios_on_comentavel_id", using: :btree
   add_index "comentarios", ["comentavel_type"], name: "index_comentarios_on_comentavel_type", using: :btree
+
+  create_table "franquia", force: :cascade do |t|
+    t.string   "nome",       limit: 80
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "pratos", force: :cascade do |t|
     t.string   "nome",       limit: 80
