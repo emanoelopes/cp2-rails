@@ -1,11 +1,4 @@
-require 'observer'
-
 class Restaurante < ActiveRecord::Base
-	include Wisper::Publisher
-
-	def qualifica(nota)
-		puts "Restaurante recebeu #{nota}"
-	end
 
 
 	validates_presence_of :nome, message: "Deve ser preenchido"
@@ -23,7 +16,8 @@ class Restaurante < ActiveRecord::Base
 	has_many :qualificacoes
 	has_and_belongs_to_many :pratos
 
-	#has_many :franquias
+	has_many :franquia
+
 
 	has_many :comentarios, as: :comentavel
   has_attached_file :foto, styles: {medium: "300x300>", thumb: "100x100>"}

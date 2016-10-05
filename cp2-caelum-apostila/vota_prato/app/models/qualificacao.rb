@@ -1,5 +1,13 @@
 class Qualificacao < ActiveRecord::Base
-	after_save :notifica
+	include Wisper::Publisher
+
+	def commit(_attrs = nil)
+		assign_attributes(_attrs) if _attrs.present?
+		result = save
+		if result
+			broadcast(:qualificacao_create_successful, self)
+		end
+	end
 
 	validates_presence_of :nota, message: " - deve ser preenchido"
 	validates_presence_of :valor_gasto, message: " -deve ser preenchido"

@@ -1,4 +1,9 @@
 class Franquia < ActiveRecord::Base
+	
+	def qualificacao_create_successful
+		puts "Um restaurante foi qualificado."
+	end
+
 	validates_presence_of :nome, message: "deve ser digitado."
 	validates_uniqueness_of :nome, message: "nome já cadastrado."
 	validate :primeira_letra_deve_ser_maiuscula

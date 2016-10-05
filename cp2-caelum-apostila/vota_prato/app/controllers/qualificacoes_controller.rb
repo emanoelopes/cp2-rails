@@ -1,4 +1,6 @@
 class QualificacoesController < ApplicationController
+  include Wisper::Publisher
+
   before_action :set_qualificacao, only: [:show, :edit, :update, :destroy]
 
   # GET /qualificacoes
@@ -34,12 +36,18 @@ class QualificacoesController < ApplicationController
   # POST /qualificacoes.json
   def create
     @qualificacao = Qualificacao.new(qualificacao_params)
+    @qualificacao.subscribe(Franquia.new)
+    @qualificacao.on(:qualificacao_create_successful) {redirect_to models}
+    @qualificacao.commit
+
     restaurante = Restaurante.find(params[:restaurante_id])
 
     respond_to do |format|
       if @qualificacao.save
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render :show, status: :created, location: @qualificacao }
+        publish(:qualificacao_create, @qualificacao)
+        render_created(@qualificacao)
       else
         preparar_form
         format.html { render :new }
