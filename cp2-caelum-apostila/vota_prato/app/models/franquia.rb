@@ -1,6 +1,10 @@
 class Franquia < ActiveRecord::Base
 	
-	def qualificacao_create_successful
+	def publish_creation_successful
+		puts "Um restaurante foi qualificado."
+	end
+
+	def qualificacao_creation_successful
 		puts "Um restaurante foi qualificado."
 	end
 

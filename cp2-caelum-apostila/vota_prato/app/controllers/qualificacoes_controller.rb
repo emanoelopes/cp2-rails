@@ -36,16 +36,16 @@ class QualificacoesController < ApplicationController
   # POST /qualificacoes.json
   def create
     @qualificacao = Qualificacao.new(qualificacao_params)
+    logger.debug "Nova qualificacao: #{@qualificacao.nota}"
     @qualificacao.subscribe(Franquia.new)
-    @qualificacao.on(:qualificacao_create_successful) {redirect_to models}
-    @qualificacao.commit
-
-    restaurante = Restaurante.find(params[:restaurante_id])
+    @qualificacao.on(:qualificacao_creation_successful) { |qualificacao| redirect_to qualificacao}
+    
 
     respond_to do |format|
       if @qualificacao.save
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render :show, status: :created, location: @qualificacao }
+        
         publish(:qualificacao_create, @qualificacao)
         render_created(@qualificacao)
       else

@@ -1,5 +1,5 @@
 class ClassificaListener
-	def qualificacao_create_successful(qualificacao)
+	def qualificacao_creation_successful
 		puts "Um restaurante foi qualificado."		
 	end
 end
