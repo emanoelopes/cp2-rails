@@ -36,20 +36,15 @@ class QualificacoesController < ApplicationController
   # POST /qualificacoes.json
   def create
     @qualificacao = Qualificacao.new(qualificacao_params)
-    logger.debug "Nova qualificacao: #{@qualificacao.nota}"
+    @qualificacao.subscribe(Franquia.new) #Inscreve uma franquia como observer
     
-
-    @qualificacao.subscribe(Franquia.new)
-    # @qualificacao.on(:qualificacao_creation_successful) { |qualificacao| puts qualificacao.nota}
-    
-
     respond_to do |format|
       if @qualificacao.save
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render :show, status: :created, location: @qualificacao }
         
         publish(:qualificacao_create, @qualificacao)
-        #render_created(@qualificacao)
+        
       else
         preparar_form
         format.html { render :new }

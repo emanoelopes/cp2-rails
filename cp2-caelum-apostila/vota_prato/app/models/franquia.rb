@@ -1,6 +1,7 @@
 class Franquia < ActiveRecord::Base
 	
-	def qualificacao_creation_successful(qualificacao)
+	#Método que será executado quando uma qualificação for criada.
+	def qualificacao_creation_successful(qualificacao) 
 		puts "Sou uma franquia e recebi sua notificação."
 	end
 
