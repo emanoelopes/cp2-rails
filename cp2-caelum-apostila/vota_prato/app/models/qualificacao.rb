@@ -1,12 +1,15 @@
 class Qualificacao < ActiveRecord::Base
 	include Wisper::Publisher
 
-	after_create :publish_creation_successful
+	#after_create :qualificacao_creation_successful
+	after_create do
+    	broadcast(:qualificacao_creation_successful, self)
+  	end
 
-	private
-	def publish_creation_successful
-		broadcast(:qualificacao_creation_successful, self)
-	end
+	# private
+	# def publish_creation_successful
+	# 	broadcast(:qualificacao_creation_successful, self)
+	# end
 
 
 
