@@ -1,0 +1,3 @@
+== README
+
+Melhorar a estrutura de pastas eliminando as pastas que não fazem parte do projeto.
