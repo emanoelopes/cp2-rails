@@ -1,0 +1,19 @@
+.modal-content
+  .modal-header
+    %button.close{href: 'javascript:;', onclick: '$.fancybox.close();', type: 'button'}
+      %span{'aria-hidden' => 'true'} x
+      %span.sr-only Close
+    %h3 Novo Cliente
+    .modal-body
+      #edit_address_errors
+      = form_for @cliente, html: {id: 'new_address', class: 'form-horizontal', role: 'form', data: {remote: true}} do |f|
+        .form-group
+          .col-sm-3
+            Nome
+          .col-sm-9
+            = f.text_field :name, id: 'name', class: 'form-control'
+         ...
+
+        .form-group
+          .col-sm-9.col-sm-offset-3
+            = f.submit 'Save', class: 'btn btn-success'
