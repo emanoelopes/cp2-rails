@@ -1,28 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Clientes</h1>
-
-<table>
+<table class='table' id='tabela_clientes'>
   <thead>
     <tr>
       <th>Nome</th>
       <th>Idade</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @clientes.each do |cliente| %>
-      <tr>
-        <td><%= cliente.nome %></td>
-        <td><%= cliente.idade %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-      </tr>
+      <%# Render table row partial for each person object %>
+      <%= render partial: 'table_row', locals: {cliente: cliente} %>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<%= link_to 'Novo Cliente','#new_cliente_modal', 'data-toglle' => 'modal' %>
 
-<%= link_to 'New Cliente', new_cliente_path %>
+<%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
+<div class="modal fade" id="new_cliente_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create new person</h4>
+      </div>
+      <div class="modal-body">
+        <%# Render the new person form (passing modal => true to enable remote => true) %>
+        <%= render 'form', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
