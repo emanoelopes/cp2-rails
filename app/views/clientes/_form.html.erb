@@ -1,6 +1,6 @@
 <% modal ||= false %>
 <% remote = modal ? true : false %>
-<%= form_for(@cliente, remote: remote, html: {role: :form, 'data-model' => 'cliente'}) do |f| %>
+<%= form_for(@cliente, remote: true, html: {role: :form, 'data-model' => 'cliente'}) do |f| %>
   <% if @cliente.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>

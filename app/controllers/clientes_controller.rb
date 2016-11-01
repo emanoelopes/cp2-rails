@@ -5,6 +5,7 @@ class ClientesController < ApplicationController
   # GET /clientes.json
   def index
     @clientes = Cliente.all
+    @cliente = Cliente.new
   end
 
   # GET /clientes/1
@@ -14,12 +15,13 @@ class ClientesController < ApplicationController
 
   # GET /clientes/new
   def new
-    @clientes = Clientes.all 
+    #@clientes = Cliente.all 
     @cliente = Cliente.new
   end
 
   # GET /clientes/1/edit
   def edit
+    @cliente = Cliente.find(params[:id])
   end
 
   # POST /clientes
@@ -36,7 +38,7 @@ class ClientesController < ApplicationController
         format.html { render :new }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
         format.js { render json: @cliente.errors, status: :unprocessable_entity }
-     end
+      end
     end
   end
 
