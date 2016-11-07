@@ -33,10 +33,5 @@
  
 <br>
 
-<%= form_for(@cliente, remote: true) do |f| %>
-  <%= f.label :nome %><br>
-  <%= f.text_field :nome %><br> 
-  <%= f.submit %>
-<% end %>
 <%= link_to 'Novo Cliente', "#novo_cliente_modal", :class=> "fancybox" %>
 
