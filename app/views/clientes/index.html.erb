@@ -25,4 +25,12 @@
 
 <br>
 
-<%= link_to 'New Cliente', new_cliente_path %>
+<div id="tf">
+  <h2>fancybox test</h2>
+</div>
+
+<script type="text/javascript">
+    $("#tf").fancybox();
+  </script>
+
+<%= link_to 'Novo Cliente', new_cliente_path, id: "novo_cliente"  %>

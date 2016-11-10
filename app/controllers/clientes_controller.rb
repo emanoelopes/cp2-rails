@@ -5,6 +5,7 @@ class ClientesController < ApplicationController
   # GET /clientes.json
   def index
     @clientes = Cliente.all
+    @cliente = Cliente.new
   end
 
   # GET /clientes/1
@@ -15,6 +16,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
+    Rails.logger.info "Isto deve aparecer no log \n\n\n\n\n"
   end
 
   # GET /clientes/1/edit
@@ -30,9 +32,11 @@ class ClientesController < ApplicationController
       if @cliente.save
         format.html { redirect_to @cliente, notice: 'Cliente was successfully created.' }
         format.json { render :show, status: :created, location: @cliente }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
