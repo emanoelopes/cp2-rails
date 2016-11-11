@@ -1,4 +1,5 @@
 class RestaurantesController < ApplicationController
+  layout false, except: :index
 	def index
     @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
 

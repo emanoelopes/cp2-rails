@@ -1,4 +1,5 @@
 class ComentariosController < ApplicationController
+  layout false, except: :index
   before_action :set_comentario, only: [:show, :edit, :update, :destroy]
 
   # GET /comentarios

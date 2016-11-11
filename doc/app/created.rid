@@ -1,0 +1,26 @@
+Fri, 11 Nov 2016 12:41:15 -0300
+README.rdoc	Thu, 20 Oct 2016 16:00:21 -0300
+app/controllers/application_controller.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/controllers/clientes_controller.rb	Thu, 10 Nov 2016 16:13:28 -0300
+app/controllers/comentarios_controller.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/controllers/franquias_controller.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/controllers/hello_world_controller.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/controllers/ola_mundo_controller.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/controllers/qualificacoes_controller.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/controllers/restaurantes_controller.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/application_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/clientes_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/comentarios_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/franquias_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/hello_world_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/ola_mundo_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/qualificacoes_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/helpers/restaurantes_helper.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/listeners/qualifica_listener.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/models/cliente.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/models/comentario.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/models/franquia.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/models/prato.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/models/qualificacao.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/models/receita.rb	Fri, 07 Oct 2016 15:51:23 -0300
+app/models/restaurante.rb	Fri, 07 Oct 2016 15:51:23 -0300

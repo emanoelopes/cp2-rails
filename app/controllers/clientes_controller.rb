@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-
+  layout false, except: :index
   # GET /clientes
   # GET /clientes.json
   def index
@@ -16,7 +16,6 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   def new
     @cliente = Cliente.new
-    Rails.logger.info "Isto deve aparecer no log \n\n\n\n\n"
   end
 
   # GET /clientes/1/edit

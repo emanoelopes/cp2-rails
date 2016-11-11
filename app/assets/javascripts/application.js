@@ -17,11 +17,10 @@
 //= require_tree .
 
 
-
 $('#novo_cliente').fancybox({
-    width: 400,
-    height: 400,
-    autoSize: true,
-    href: '/clientes/new',
-    type: 'ajax'
+  width: 400,
+  height: 400,
+  autoSize: true,
+  href: '/clientes/new',
+  type: 'ajax'
 });

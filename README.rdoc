@@ -26,3 +26,19 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+08.11.16 - ba2b245
+
+09.11.16 - 3c58da0 - Voltei para este commit.
+
+10.11.16 - 4ce72ae - o fancybox carregou a página inteira.
+
+
+11.11.16 - Para não carregar a página inteira, adicionar:
+
+```ruby
+layout: false, execpt: :index 
+```
+no controller para exibir somente a view.
+
+

@@ -1,6 +1,5 @@
 class QualificacoesController < ApplicationController
-  include Wisper::Publisher
-
+  layout false, except: :index
   before_action :set_qualificacao, only: [:show, :edit, :update, :destroy]
 
   # GET /qualificacoes
