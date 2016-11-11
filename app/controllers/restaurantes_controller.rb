@@ -1,5 +1,4 @@
 class RestaurantesController < ApplicationController
-  layout false, except: :index
 	def index
     @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
 
@@ -27,19 +26,23 @@ class RestaurantesController < ApplicationController
 	def new
 		@restaurante = Restaurante.new
 	end
-	
-	#action create é necessária para persistir os dados no banco.
+
+  #action create é necessária para persistir os dados no banco.
 	def create
 		@restaurante = Restaurante.new restaurante_params
-		if @restaurante.save
-		redirect_to(action: "show", id: @restaurante)
-		else
-		render action: "new"
-		end
+    respond_to do |format|
+      if @restaurante.save
+        format.html {redirect_to(action: "show", id: @restaurante)}
+        format.js
+      else
+        format.html {render action: "new"}
+        format.js
+      end
+    end
 	end
 
 	#Solicita a atribuição das propriedades de um restaurante.
-	def restaurante_params 
+	def restaurante_params
 		params.require(:restaurante).permit(:nome, :endereco, :especialidade, :foto)
 	end
 

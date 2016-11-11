@@ -41,4 +41,14 @@ layout: false, execpt: :index
 ```
 no controller para exibir somente a view.
 
+Problema: antes de abrir a fancybox, a página deve ser recarregada.
 
+$('#button').on('click', function(){
+    $.fancybox({
+        width: 400,
+        height: 400,
+        autoSize: false,
+        href: '/some/url-to-load',
+        type: 'ajax'
+    });
+});
