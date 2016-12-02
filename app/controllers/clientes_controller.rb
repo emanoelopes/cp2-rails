@@ -5,7 +5,6 @@ class ClientesController < ApplicationController
   # GET /clientes.json
   def index
     @clientes = Cliente.all
-    @cliente = Cliente.new
   end
 
   # GET /clientes/1
@@ -29,13 +28,13 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
+        format.js
         format.html { redirect_to @cliente, notice: 'Cliente was successfully created.' }
         format.json { render :show, status: :created, location: @cliente }
-        format.js
       else
+        format.js
         format.html { render :new }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
-        format.js
       end
     end
   end
@@ -61,7 +60,6 @@ class ClientesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to clientes_url, notice: 'Cliente was successfully destroyed.' }
       format.json { head :no_content }
-      format.js {render :nothing => true }
     end
   end
 
