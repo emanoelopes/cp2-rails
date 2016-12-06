@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'welcome/index'
+
+
   resources :franquias
   resources :comentarios
   resources :qualificacoes
@@ -61,6 +65,9 @@ Rails.application.routes.draw do
 
 end
 VotaPrato::Application.routes.draw do
+  devise_for :users
+  get 'welcome/index'
+
   resources :franquias
   resources :comentarios
   resources :qualificacoes
