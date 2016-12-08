@@ -39,10 +39,12 @@ class QualificacoesController < ApplicationController
       if @qualificacao.save
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render :show, status: :created, location: @qualificacao }
+        format.js
       else
         preparar_form
         format.html { render :new }
         format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
