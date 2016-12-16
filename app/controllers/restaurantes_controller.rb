@@ -1,5 +1,5 @@
 class RestaurantesController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
 

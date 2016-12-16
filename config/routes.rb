@@ -65,7 +65,7 @@
 
 #end
 VotaPrato::Application.routes.draw do
-  root to: "clientes#index"
+  root to: "welcome#index"
   devise_for :users
   get 'welcome/index'
 
