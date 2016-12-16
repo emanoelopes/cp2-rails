@@ -1,13 +1,13 @@
-Rails.application.routes.draw do
+#Rails.application.routes.draw do
 #  devise_for :users
-  get 'welcome/index'
+#  get 'welcome/index'
 
 
-  resources :franquias
-  resources :comentarios
-  resources :qualificacoes
-  resources :clientes
-  resources :restaurantes
+  # resources :franquias
+  # resources :comentarios
+  # resources :qualificacoes
+  # resources :clientes
+  # resources :restaurantes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -63,12 +63,13 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-end
+#end
 VotaPrato::Application.routes.draw do
+  root to: "clientes#index"
   devise_for :users
   get 'welcome/index'
 
-  resources :franquias
+  resources :restaurantes
   resources :comentarios
   resources :qualificacoes
   resources :clientes

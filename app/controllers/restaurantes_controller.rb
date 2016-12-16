@@ -1,5 +1,6 @@
 class RestaurantesController < ApplicationController
-	def index
+
+  def index
     @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
 
 		respond_to do |format|
@@ -26,8 +27,8 @@ class RestaurantesController < ApplicationController
 	def new
 		@restaurante = Restaurante.new
 	end
-	
-	#action create é necessária para persistir os dados no banco.
+
+  #action create é necessária para persistir os dados no banco.
 	def create
 		@restaurante = Restaurante.new restaurante_params
 		if @restaurante.save

@@ -17,8 +17,8 @@ module ApplicationHelper
 	end
 
 	def menu_principal(controllers)
-		render partial: "layouts/menu_principal"#, 
-		#locals: {opcoes: controllers}
+		render partial: "layouts/menu_principal", 
+		locals: {opcoes: controllers}
 	end
 
 end
