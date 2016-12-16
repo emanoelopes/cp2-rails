@@ -1,7 +1,5 @@
 <ul>
-<% opcoes.each do |controller_name| %>
-	<li>
-		<% link_to controller_name, controller: controller_name %>
-</li>
-<%end%>
+  <li><%= link_to "Clientes", clientes_path %></li>
+  <li><%= link_to "Restaurantes", restaurantes_path %></li>
+  <li><%= link_to "Qualificações", qualificacoes_path%></li>
 </ul>
