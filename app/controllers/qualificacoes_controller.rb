@@ -2,7 +2,7 @@ class QualificacoesController < ApplicationController
   include Wisper::Publisher
 
   before_action :set_qualificacao, only: [:show, :edit, :update, :destroy]
-
+  layout false, except: :index
   # GET /qualificacoes
   # GET /qualificacoes.json
   def index
@@ -40,6 +40,7 @@ class QualificacoesController < ApplicationController
     
     respond_to do |format|
       if @qualificacao.save
+        format.js 
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render :show, status: :created, location: @qualificacao }
         
@@ -47,6 +48,7 @@ class QualificacoesController < ApplicationController
         
       else
         preparar_form
+        format.js
         format.html { render :new }
         format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
       end

@@ -1,6 +1,6 @@
 class ComentariosController < ApplicationController
   before_action :set_comentario, only: [:show, :edit, :update, :destroy]
-
+  layout false, except: :index
   # GET /comentarios
   # GET /comentarios.json
   def index
