@@ -1,5 +1,5 @@
 class Restaurante < ActiveRecord::Base
-
+  resourcify
 
 	validates_presence_of :nome, message: "Deve ser preenchido"
 	validates_presence_of :endereco, message: "Deve ser preenchido"

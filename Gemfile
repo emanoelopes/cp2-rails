@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rolify'
+gem 'cancancan'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
