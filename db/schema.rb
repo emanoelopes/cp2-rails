@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20161222191223) do
     t.string   "foto_file_name",    limit: 255
     t.string   "foto_content_type", limit: 255
     t.integer  "foto_file_size",    limit: 4
-    t.datetime "foto_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
