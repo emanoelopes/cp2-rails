@@ -1,26 +1,30 @@
 class RestaurantesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   layout false, except: :index
+  load_and_authorize_resource :through => :current_user
+  load_and_authorize_resource param_method: :my_sanitizer
+
   def index
     @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
-
 		respond_to do |format|
 			format.html
 			format.xml {render xml: @restaurantes}
 			format.json {render json: @restaurantes}
 		end
 	end
-	def show
+
+  def show
 		@restaurante = Restaurante.find(params[:id])
 
 		respond_to do |format|
 			format.html
 			format.xml {render xml: @restaurante}
 			format.json {render json: @restaurante}
-		end
+	 	end
 	end
 
 	def destroy
+    authorize! :destroy, @restaurante
 		@restaurante = Restaurante.find(params[:id])
 		@restaurante.destroy
 		redirect_to(action: 'index')
@@ -40,15 +44,18 @@ class RestaurantesController < ApplicationController
 	end
 
 	#Solicita a atribuição das propriedades de um restaurante.
-	def restaurante_params 
+	def restaurante_params
 		params.require(:restaurante).permit(:nome, :endereco, :especialidade, :foto)
 	end
 
 	def edit
+    authorize! :update, @restaurante
+
 		@restaurante = Restaurante.find params[:id]
 	end
 
 	def update
+    authorize! :update, @restaurante
 		@restaurante = Restaurante.find(params[:id])
 		if @restaurante.update_attributes(restaurante_params)
 			redirect_to action: "show", id: @restaurante
@@ -66,5 +73,11 @@ class RestaurantesController < ApplicationController
 			redirect_to :action => 'index'
 		end
 	end
+
+  private
+
+  def my_sanitizer
+    params.require(:restaurante).permit(:nome)
+  end
 
 end
