@@ -2,7 +2,7 @@
 
 <h1>Comentários</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Conteudo</th>
@@ -18,9 +18,9 @@
         <td><%= comentario.conteudo %></td>
         <td><%= comentario.comentavel_id %></td>
         <td><%= comentario.comentavel_type %></td>
-        <td><%= button_to 'Mostrar', comentario, method: :get %></td>
-        <td><%= button_to 'Editar', edit_comentario_path(comentario), method: :get %></td>
-        <td><%= button_to 'Apagar', comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Mostrar', comentario, method: :get, class: "btn btn-default" %></td>
+        <td><%= button_to 'Editar', edit_comentario_path(comentario), method: :get, class: "btn btn-default" %></td>
+        <td><%= button_to 'Apagar', comentario, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'Novo Comentário', new_comentario_path %>
+<%= button_to 'Novo Comentário', new_comentario_path, method: :get, class: "btn btn-primary" %>

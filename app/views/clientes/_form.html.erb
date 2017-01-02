@@ -11,15 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :idade %><br>
-    <%= f.number_field :idade %>
+    <%= f.number_field :idade, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit "Salvar"%>
-  </div>
+    <%= f.submit "Salvar", class: "btn btn-success" %>
 <% end %>

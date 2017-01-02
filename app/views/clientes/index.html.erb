@@ -2,7 +2,7 @@
 
 <h1>Clientes</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nome</th>
@@ -16,8 +16,8 @@
       <tr>
         <td><%= cliente.nome %></td>
         <td><%= cliente.idade %></td>
-        <td><%= button_to 'Mostrar', cliente, method: :get  %></td>
-        <td><%= button_to 'Editar', edit_cliente_path(cliente), method: :get %></td>
+        <td><%= button_to 'Mostrar', cliente, method: :get, class: "btn btn-default"  %></td>
+        <td><%= button_to 'Editar', edit_cliente_path(cliente), method: :get, class: "btn btn-default"  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= button_to 'Novo Cliente', new_cliente_path, remote: true, method: :get %>
+<%= button_to 'Novo Cliente', new_cliente_path, remote: true, method: :get, class: "btn btn-primary"  %>
