@@ -2,7 +2,7 @@ class RestaurantesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   layout false, except: :index
   load_and_authorize_resource :through => :current_user
-  load_and_authorize_resource param_method: :my_sanitizer
+  #load_and_authorize_resource param_method: :my_sanitizer
 
   def index
     @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
