@@ -1,13 +1,1 @@
-<h1>Sistema VotaPrato</h1>
-<h2>Proposto pela apostila 77 da Caelum</h2>
-
-<% if user_signed_in? %>
-<ul>
-  <li><%= current_user.email  %></li>
-  <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
-<%else%>
-  <li><%= link_to "Cadastrar usuário", new_user_registration_path %></li>
-  <li><%= link_to "Logar", new_user_session_path %></li>
-</ul>
-<%end%>
-
+<h1>Página inicial</h1>

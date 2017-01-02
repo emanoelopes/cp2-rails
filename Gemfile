@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'twitter-bootstrap-rails'
 gem 'rolify'
 gem 'cancancan'
 gem 'fancybox2-rails', '~> 0.2.8'

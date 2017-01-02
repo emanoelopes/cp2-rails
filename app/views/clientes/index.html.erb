@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Clientes</h1>
+<h1>Clientes</h1>
 
 <table>
   <thead>
@@ -16,8 +16,8 @@
       <tr>
         <td><%= cliente.nome %></td>
         <td><%= cliente.idade %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
+        <td><%= button_to 'Mostrar', cliente, method: :get  %></td>
+        <td><%= button_to 'Editar', edit_cliente_path(cliente), method: :get %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Cliente', new_cliente_path, remote: true %>
+<%= button_to 'Novo Cliente', new_cliente_path, remote: true, method: :get %>

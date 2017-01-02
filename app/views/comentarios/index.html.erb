@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Comentarios</h1>
+<h1>Comentários</h1>
 
 <table>
   <thead>
@@ -18,9 +18,9 @@
         <td><%= comentario.conteudo %></td>
         <td><%= comentario.comentavel_id %></td>
         <td><%= comentario.comentavel_type %></td>
-        <td><%= link_to 'Show', comentario %></td>
-        <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>
-        <td><%= link_to 'Destroy', comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Mostrar', comentario, method: :get %></td>
+        <td><%= button_to 'Editar', edit_comentario_path(comentario), method: :get %></td>
+        <td><%= button_to 'Apagar', comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Comentario', new_comentario_path %>
+<%= link_to 'Novo Comentário', new_comentario_path %>

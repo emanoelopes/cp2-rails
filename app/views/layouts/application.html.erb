@@ -9,8 +9,28 @@
   <%= yield :css %>
 </head>
 <body>
-<%= render "layouts/menu_principal" %>
-<%= yield %>
+  <%= nav_bar brand: VotaPrato, brand_link: root_path do %>
+    <%= menu_group do %>
+      <%= menu_item "Página inicial", root_path %>
+      <%= menu_item "Clientes", clientes_path %>
+      <%= menu_item "Restaurantes", restaurantes_path %>
+      <%= menu_item "Qualificações", qualificacoes_path %>
+    <% end %>
+    <%= menu_group pull: :right do %>
+      <% if user_signed_in? %>
+        <%= menu_item current_user.email %>
+        <%= menu_item "Sair", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= menu_group pull: :right do %>
+          <%= menu_item "Cadastrar-se", new_user_registration_path %>
+          <%= menu_item "Logar", new_user_session_path %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<div class="container">
+	<%= yield %>
+</div>
 <script> 
 <%= yield :js %>
 </script>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Qualificacoes</h1>
+<h1>Qualificações</h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= qualificacao.restaurante.nome %></td>
         <td><%= qualificacao.nota %></td>
         <td><%= valor_formatado(qualificacao.valor_gasto) %></td>
-        <td><%= link_to 'Show', qualificacao %></td>
-        <td><%= link_to 'Edit', edit_qualificacao_path(qualificacao) %></td>
-        <td><%= link_to 'Destroy', qualificacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Mostrar', qualificacao, method: :get %></td>
+        <td><%= button_to 'Editar', edit_qualificacao_path(qualificacao), method: :get %></td>
+        <td><%= button_to 'Remover', qualificacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Qualificacao', new_qualificacao_path, remote: true %>
+<%= button_to 'Nova Qualificação', new_qualificacao_path, remote: true, method: :get %>
