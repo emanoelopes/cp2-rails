@@ -1,21 +1,20 @@
 class RestaurantesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   layout false, except: :index
-  load_and_authorize_resource :through => :current_user
-  #load_and_authorize_resource param_method: :my_sanitizer
+  #load_and_authorize_resource :through => :current_user
+  #load_and_authorize_resource
 
   def index
-    @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
-		respond_to do |format|
-			format.html
-			format.xml {render xml: @restaurantes}
-			format.json {render json: @restaurantes}
-		end
+  @restaurantes = Restaurante.order("nome").page(params['page']).per(3)
+  	respond_to do |format|
+	  	format.html
+	  	format.xml {render xml: @restaurantes}
+	    format.json {render json: @restaurantes}
+    end
 	end
 
   def show
 		@restaurante = Restaurante.find(params[:id])
-
 		respond_to do |format|
 			format.html
 			format.xml {render xml: @restaurante}
@@ -24,7 +23,6 @@ class RestaurantesController < ApplicationController
 	end
 
 	def destroy
-    authorize! :destroy, @restaurante
 		@restaurante = Restaurante.find(params[:id])
 		@restaurante.destroy
 		redirect_to(action: 'index')
@@ -49,13 +47,10 @@ class RestaurantesController < ApplicationController
 	end
 
 	def edit
-    authorize! :update, @restaurante
-
 		@restaurante = Restaurante.find params[:id]
 	end
 
 	def update
-    authorize! :update, @restaurante
 		@restaurante = Restaurante.find(params[:id])
 		if @restaurante.update_attributes(restaurante_params)
 			redirect_to action: "show", id: @restaurante

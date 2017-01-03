@@ -1,6 +1,6 @@
 <h1>Listagem de Restaurantes</h1>
 
-<table>
+<table class="table table-striped">
 	<tr>
 		<th>Nome</th>
 		<th>Endereço</th>
@@ -13,14 +13,14 @@
 			<td><%= restaurante.endereco %></td>
 			<td><%= restaurante.especialidade %></td>
 			<td>
-				<%= link_to 'Mostrar', action: 'show', id: restaurante %>
+				<%= button_to 'Mostrar', restaurante, method: :get, class: "btn btn-default" %>
 			</td>
 			<td>
-			<%= link_to 'Editar', action: 'edit', id: restaurante %>
+			<%= button_to 'Editar', edit_restaurante_path(restaurante), method: :get, class: "btn btn-default" %>
 			</td>
 		</tr>
 	<%end%>
 </table>
 
 </br>
-<%= link_to 'Novo', new_restaurante_path, remote: true %>
+<%= button_to 'Novo', new_restaurante_path, remote: true, method: :get, class: "btn btn-default" %>
