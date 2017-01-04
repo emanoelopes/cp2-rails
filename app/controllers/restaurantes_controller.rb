@@ -1,5 +1,5 @@
 class RestaurantesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except:[:index, :show]
   layout false, except: :index
   #load_and_authorize_resource :through => :current_user
   #load_and_authorize_resource
