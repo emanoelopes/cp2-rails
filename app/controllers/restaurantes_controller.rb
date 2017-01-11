@@ -1,7 +1,7 @@
 class RestaurantesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   layout false, except: :index
-  load_and_authorize_resource :through => :current_user
+  load_and_authorize_resource #:through => :current_user
   #load_and_authorize_resource param_method: :my_sanitizer
 
   def index
@@ -24,7 +24,6 @@ class RestaurantesController < ApplicationController
 	end
 
 	def destroy
-    authorize! :destroy, @restaurante
 		@restaurante = Restaurante.find(params[:id])
 		@restaurante.destroy
 		redirect_to(action: 'index')
@@ -49,13 +48,10 @@ class RestaurantesController < ApplicationController
 	end
 
 	def edit
-    authorize! :update, @restaurante
-
 		@restaurante = Restaurante.find params[:id]
 	end
 
 	def update
-    authorize! :update, @restaurante
 		@restaurante = Restaurante.find(params[:id])
 		if @restaurante.update_attributes(restaurante_params)
 			redirect_to action: "show", id: @restaurante
