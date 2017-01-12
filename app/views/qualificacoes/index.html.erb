@@ -22,7 +22,9 @@
         <td><%= valor_formatado(qualificacao.valor_gasto) %></td>
         <td><%= button_to 'Mostrar', qualificacao, method: :get, class: "btn btn-default"  %></td>
         <td><%= button_to 'Editar', edit_qualificacao_path(qualificacao), method: :get, class: "btn btn-default" %></td>
-        <td><%= button_to 'Remover', qualificacao, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>
+        <% if can? :destroy, @qualificacao %>
+          <td><%= button_to 'Remover', qualificacao, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

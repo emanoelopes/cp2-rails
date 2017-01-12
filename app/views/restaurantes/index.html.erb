@@ -1,12 +1,13 @@
 <h1>Listagem de Restaurantes</h1>
 
 <table class="table table-striped">
-	<tr>
-		<th>Nome</th>
-		<th>Endereço</th>
-		<th>Especialidade</th>
-	</tr>
-
+  <thead>
+  	<tr>
+	  	<th>Nome</th>
+	  	<th>Endereço</th>
+  		<th>Especialidade</th>
+  	</tr>
+  </thead>
 	<% @restaurantes.each do |restaurante| %>
 		<tr>
 			<td><%= restaurante.nome %></td>
@@ -15,9 +16,12 @@
 			<td>
 				<%= button_to 'Mostrar', restaurante, method: :get, class: "btn btn-default" %>
 			</td>
+      <% if can? :update, @restaurante %>
 			<td>
 				<%= button_to 'Editar', edit_restaurante_path(restaurante), method: :get, class: "btn btn-default" %>
-			</td>
+      </td>
+      <td><%= button_to 'Apagar', restaurante, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>
+    <% end %>
 		</tr>
 	<%end%>
 </table>

@@ -3,6 +3,7 @@ class QualificacoesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_qualificacao, only: [:show, :edit, :update, :destroy]
   layout false, except: :index
+  load_and_authorize_resource
   # GET /qualificacoes
   # GET /qualificacoes.json
   def index

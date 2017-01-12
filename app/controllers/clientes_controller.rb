@@ -2,6 +2,7 @@ class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   layout false, except: :index
+  load_and_authorize_resource 
   # GET /clientes
   # GET /clientes.json
   def index

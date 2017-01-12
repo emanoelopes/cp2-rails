@@ -1,4 +1,5 @@
 class Qualificacao < ActiveRecord::Base
+  resourcify
 	include Wisper::Publisher #Utilizando a gem Wisper em substituição do Observer do Ruby que foi descontinuado.
 
 	after_create do
