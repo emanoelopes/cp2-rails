@@ -6,11 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   Alimentando a tabela de regras para o Rolify
-p "Removendo #{Role.all.count} regras encontradas."
-Role.destroy_all
-p "Criando 2 regras "
-[:admin, :usuario].each do |role|
-  Role.create(name: role)
+p "Verificando banco de regras..."
+p "Existem #{Role.all.count} regras cadastradas"
+if Role.all.count == 0
+  [:admin, :usuario].each do |role|
+    Role.create(name: role)
+    p "As regras admin e usuário foram criadas."
+  end
+  else
+    p "As regras existentes foram preservadas." 
 end
-p "Foram criadas #{Role.all.count} regras"
-
