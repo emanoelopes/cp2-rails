@@ -25,5 +25,6 @@
 </table>
 
 <br>
-
+<% if can? :create, @restaurante %>
 <%= button_to 'Novo Cliente', new_cliente_path, remote: true, method: :get, class: "btn btn-primary"  %>
+<% end %>

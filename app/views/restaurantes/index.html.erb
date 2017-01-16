@@ -27,4 +27,6 @@
 </table>
 
 </br>
-<%= button_to 'Novo', new_restaurante_path, remote: true, method: :get, class: "btn btn-default" %>
+<% if can? :create, @restaurante %>
+  <%= button_to 'Novo', new_restaurante_path, remote: true, method: :get, class: "btn btn-default" %>
+<% end %>

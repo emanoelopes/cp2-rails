@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#   Alimentando a tabela de regras para o Rolify
+p "Removendo #{Role.all.count} regras encontradas."
+Role.destroy_all
+p "Criando 2 regras "
+[:admin, :usuario].each do |role|
+  Role.create(name: role)
+end
+p "Foram criadas #{Role.all.count} regras"
+

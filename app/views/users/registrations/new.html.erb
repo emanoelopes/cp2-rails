@@ -20,8 +20,10 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
-  <div class="actions">
+  <div class="field">
+    <%= f.check_box :admin %>Admin?</br>
+  </div>
+ <div class="actions">
     <%= f.submit "Cadastrar-se" %>
   </div>
 <% end %>

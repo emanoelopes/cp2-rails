@@ -24,12 +24,13 @@
         <td><%= button_to 'Editar', edit_qualificacao_path(qualificacao), method: :get, class: "btn btn-default" %></td>
         <% if can? :destroy, @qualificacao %>
           <td><%= button_to 'Remover', qualificacao, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>
-          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= button_to 'Nova Qualificação', new_qualificacao_path, remote: true, method: :get, class: "btn btn-primary" %>
+<% if can? :create, @qualificacao %>
+  <%= button_to 'Nova Qualificação', new_qualificacao_path, remote: true, method: :get, class: "btn btn-primary" %>
+<% end %>
